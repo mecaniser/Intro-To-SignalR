@@ -1,22 +1,19 @@
 ﻿
 
 //Immediate Invoked Function
-
-(function () {
+(function() {
+    var MyHubConn = $.connection.myHub;
     $.connection.hub.start()
-        .done(function () {
-            console.log("We have connection, on console!");
-
-            // ReSharper disable once PossiblyUnassignedProperty
-            //$.connection.myHub.server.hello(); 
-            $.connection.myHub.server.messageAllTime();
-
+        .done(function() {
+            print_to_page(" We R connected! ");
+            MyHubConn.server.messageAllTime();
         })
-        .fail(function () { alert("There is an Error, inspect your code") });
+        .fail(function() { print_to_page("There is an Error, inspect your code"); });
 
-    $.connection.myHub.client.MessageReciever = function (message) {
-        $("#message").append(message);
-        $("#message2").append(message);
-        console.log(message);
+    MyHubConn.client.MessageReciever = function(message) {
+        print_to_page(message);
     }
-})()
+    var print_to_page = function(message) {
+        $("#message2").append(message);
+    }
+})();
