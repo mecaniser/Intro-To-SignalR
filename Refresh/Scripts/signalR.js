@@ -3,10 +3,28 @@
 //Immediate Invoked Function
 (function () {
 
+
+
+    var Chat = $.connection.chat;
+    $.connection.hub.start()
+        .done(function () {
+            $.connection.hub.logging = true;
+            print_to_page(" We R connected! ");
+            $.connection.hub.log("A different way to console log");
+
+        })
+        .fail(function () { print_to_page("There is an Error, inspect your code"); });
+
+    Chat.client.MessageReciever = function (message) {
+        print_to_page(message);
+    }
+    var print_to_page = function (message) {
+        $("#message2").append(message);
+    }
     $("#displayTime").on("click",
-        function() {
+        function () {
             //print_to_page(data);
-            MyHubConn.server.messageAllTime()
+            Chat.server.messageAllTime()
                 .done(function (data) {
                     print_to_page(data);
                 })
@@ -15,19 +33,4 @@
                 });
             console.log("The button works!");
         });
-
-    var MyHubConn = $.connection.chat;
-    $.connection.hub.start()
-        .done(function () {
-            print_to_page(" We R connected! ");
-            
-        })
-        .fail(function () { print_to_page("There is an Error, inspect your code"); });
-
-    MyHubConn.client.MessageReciever = function (message) {
-        print_to_page(message);
-    }
-    var print_to_page = function (message) {
-        $("#message2").append(message);
-    }
 })();
