@@ -3,15 +3,13 @@
 //Immediate Invoked Function
 (function () {
 
-
-
     var Chat = $.connection.chat;
+    //Using logging to log to console while the app is in development 
+    $.connection.hub.logging = true;
     $.connection.hub.start()
         .done(function () {
-            $.connection.hub.logging = true;
             print_to_page(" We R connected! ");
             $.connection.hub.log("A different way to console log");
-
         })
         .fail(function () { print_to_page("There is an Error, inspect your code"); });
 
