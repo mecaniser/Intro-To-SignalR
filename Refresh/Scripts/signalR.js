@@ -16,7 +16,7 @@
             console.log("The button works!");
         });
 
-    var MyHubConn = $.connection.myHub;
+    var MyHubConn = $.connection.chat;
     $.connection.hub.start()
         .done(function () {
             print_to_page(" We R connected! ");
