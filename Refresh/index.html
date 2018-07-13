@@ -3,7 +3,10 @@
 <head>
     <meta charset="utf-8" />
     <link href="https://fonts.googleapis.com/css?family=Knewave" rel="stylesheet">
-    <script src="Scripts/jquery-1.6.4.min.js"></script>
+    <!--<script src="Scripts/jquery-1.6.4.min.js"></script>-->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+            crossorigin="anonymous"></script>
     <script src="Scripts/jquery.signalR-2.3.0.min.js"></script>
     <script src="/SignalR/hubs"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -26,8 +29,10 @@
                 <div class="card-body">
                     <h1 class="card-title">SignalR</h1>
                     <h3 id="message2">Status: </h3>
-                    <p class="card-text">Real time application based on SignalR</p>
-                    <a href="#" class="btn btn-primary">Link to nowhere</a>
+                    <p class="card-text">Real time application based on SignalR, which will display Server Date Time</p>
+                    <!--<a href="#" class="btn btn-primary">Link to nowhere</a>-->
+                    <input type="button" value="Click me!" id="displayTime" class="btn btn-primary" />
+                    <!--<button class="btn btn-primary ">Time</button>-->
                 </div>
             </div>
         </div>
