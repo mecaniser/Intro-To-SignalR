@@ -10,10 +10,7 @@ namespace Refresh
     [HubName("chat")]
     public class ChatHub : Hub
     {
-        //public void Hello() => Clients.All.MessageReciever(DateTime.Now);
-
         public void MessageAllTime() => Clients.Caller.MessageReciever(DateTime.Today);
 
-        //public void DateTimeServer() => Clients.Caller.DisplayDateTime(DateTime.Now);
     }
 }
